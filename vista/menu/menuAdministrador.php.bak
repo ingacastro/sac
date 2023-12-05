@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Menú del Administrador</title>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<body class="skin-blue">
+<?php
+$img='../../vista/cne.jpg';
+$img2='../../imagen/LOGO20MAYO.png';
+require '../../plantilla/encabezado.php';
+
+?>
+<table align="center" class="table-hover">
+    <tr>
+    	<td colspan="2" align="center"><h2>Seleccione la opción que desea ejecutar:</h2></td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2">
+            <input type="button" class="btn btn-primary btn-block btn-flat" onclick="javascript:location.href='../../controlador/coord/consContAdmin.php';" value="Mostrar contingencias" class="btn-box-tool" />
+        </td>
+     </tr>
+    <tr>
+    	<td colspan="2"><h1>OFICINAS QUE ATENDIERON LAS CONTINGENCIAS</h1></td>
+    </tr>
+    <tr>
+    	<td><H1>Oficina</H1></td>
+        <td><h1>Cantidad</h1></td>
+    </tr>
+<?php
+$cantidadA= consContin($db);
+while ($row=$cantidadA->fetch(PDO::FETCH_BOTH)){ ?>
+    <tr>
+        <td><H2><?php echo utf8_encode($row[1]); ?></H2></td>
+        <td><H2><?php echo $row[2]; ?></H2></td>
+    </tr>
+ <?php } ?>
+    </table>
+</body>
+</html>

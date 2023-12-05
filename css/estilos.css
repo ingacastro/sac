@@ -1,0 +1,361 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:1px; padding:1px; border:1px}
+
+body{
+    background-color: beige;
+    background-repeat:no-repeat;
+    text-align:center
+}
+
+h1 {
+    font-size:1.2em;
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+    text-align:center
+}
+
+img {  border-style: none}
+
+p { text-align:center}
+
+table{
+    width:80%;
+    height:100px;
+    text-align:center;
+    padding:inherit;
+    vertical-align:middle;
+    margin-left:auto;
+    margin-right:auto;
+    border: thin;
+    background-color: beige;
+}
+
+table tr{
+    height: 50px;
+    text-align:center;
+    padding:0.5px;
+    margin:0.5px;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align:middle;
+}
+
+table td{
+    text-align:center;
+    height:50px;
+    padding:0.5px;
+    margin:0.5px;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align:middle;
+}
+
+input[type='button']{
+    background: graytext;
+    border: 1px solid #000;
+    font: "Times New Roman", Times, serif;
+}
+
+input[type='text'] {
+			color: black;
+			background: #fff;
+			border: 1px solid #000;
+			height:25px
+		}
+					
+input[type='password']{
+		color: #781351;
+			background:#fff;
+			border: 1px solid #000
+	}
+	
+input[type='submit']{	background:#CCCCCC;
+						border: 1px solid #000;
+						font: "Times New Roman", Times, serif;
+					}
+					
+select { border:#000;
+	}
+
+.borde	{	border:#006	}
+
+.button {
+    background:graytext;
+    background: -webkit-gradient(linear, left top, left bottom, from(#93BDD9), to(#384954));
+    background: -moz-linear-gradient(top, #93BDD9, #384954);
+    border-top: 1px solid #96D1F8;
+    color: black;
+    font-size:12px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px 15px;
+    text-decoration: none;
+    vertical-align: middle;
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+    border-radius: 14px;
+    -moz-box-shadow: rgba(0,0,0,1) 1px 0;
+    -wenkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+}
+
+
+.centrar	{	background-position:center	}
+
+.fondoDer	{	background-position:right	}
+
+.fondoIzq	{   background-position:left	}
+
+.input{	color:black;
+		border: solid;
+		border-width:thin;
+		border-color:black;
+		text-align:center;
+		padding:inherit;
+		}
+		
+.select {	font-family:Arial, Helvetica, sans-serif; font-size:12px; color: white; background-color:#39F; width:400px
+			}
+.selectA {	font-family:Arial, Helvetica, sans-serif; font-size:12px; color: white; background-color:#33FF66 ; width:400px
+			}			
+.select2 {	font-family:Arial, Helvetica, sans-serif; font-size:12px; color: white; background-color:#39F; width: 75px
+			}
+.select3 {	font-family:Arial, Helvetica, sans-serif; font-size:12px; color: white; background-color:#39F; width: 100px
+			}
+.select4 {	font-family:Arial, Helvetica, sans-serif; font-size:12px; color: white; background-color:#00F; width:400px
+			}
+
+.tabla{
+	font-family: "Times New Roman", Times, serif;
+	font-size:12px;
+	text-align: center;
+	width: 85%;
+	}
+	
+.tablaC{
+	font-family: "Times New Roman", Times, serif;
+	font-size:12px;
+	text-align: center;
+	width: 100%;
+        background-color: beige;
+	}
+
+.tablaC2{
+	font-family: "Times New Roman", Times, serif;
+	font-size:14px;
+	text-align: center;
+	width: 100%;
+        background-color: beige;
+	}
+
+.tablaR{
+	font-family: "Times New Roman", Times, serif;
+	font-size:16px;
+	text-align: center;
+	width: 85%;
+	}
+
+.tablaR2{
+	font-family: "Times New Roman", Times, serif;
+	font-size:16px;
+	text-align: left;
+	width: 85%;
+	}
+
+.tablaRep{
+	width:85%;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+	}
+	
+.tabla .modo1 {
+	font-size: 11px;
+	font-weight:bold;
+	background-color: #e2ebef;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tabla .modo2 {
+	font-size: 11px;
+	font-weight:bold;
+	background-color:#00FF66;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tabla .modo3 {
+	font-size: 11px;
+	font-weight:bold;
+	background-color:#FFFF00;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tablaC .modo1 {
+	font-size: 12px;
+	background-color: #FFFFFF;
+	background-repeat: repeat-x;
+	font-family: "Times New Roman", Times, serif;
+	text-align:center;
+        background-color: beige;
+}
+
+.tablaR .modo1 {
+	font-size: 16px;
+	font-weight:bold;
+	background-color:#CFC;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tablaR .modo2 {
+	font-size: 16px;
+	font-weight:bold;
+	background-color:#9F9;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tablaR .modo3 {
+	font-size: 16px;
+	font-weight:bold;
+	background-color:#999999;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tablaR .modo4 {
+	font-size: 16px;
+	font-weight:bold;
+	background-color:#CCCCCC;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif; 
+}
+
+.tablaR2 .modo1 {
+	font-size: 16px;
+	font-weight:bold;
+	background-color:#CFC;
+	background-image: url(fondo_tr01.png);
+	background-repeat: repeat-x;
+	color: #34484E;
+	font-family: "Times New Roman", Times, serif;
+}
+	
+	.tabla th {
+		padding:inherit;
+		font-size: 12px;
+		background-color:  #83aec0;
+		background-repeat: repeat-x;
+		color: #FFFFFF;
+		border-right-width: 1px;
+		border-bottom-width: 1px;
+		border-right-style: solid;
+		border-bottom-style: solid;
+		border-right-color: #558FA6;
+		border-bottom-color: #558FA6;
+		font-family: "Times New Roman", Times, serif;
+		text-transform: uppercase;
+	}
+
+	.tabla .modo1 td {
+		padding:inherit;
+		text-align:center;
+	}
+	
+	.tablaC .modo1 td {
+		padding:inherit;
+		text-align:center;
+		width:25%;
+	}
+	
+	.tablaRep .modo1 td {
+		padding:inherit;
+		text-align:center;
+		width:25%;
+	}
+	
+	.tablaRep .modo2 td {
+		padding:inherit;
+		text-align:center;
+		width:60%;
+	}
+
+
+.text	{	border-color:red;
+			border-style:solid;
+			border-width:20px;
+		}
+		
+.textarea{	border:solid;
+			color: black;
+			border-width:thin;
+			border-color:black;
+			text-align:justify;
+			padding:inherit;
+			background-color:#FFFFFF;
+		}
+		
+.texto	{	font:Arial,	Helvetica, sans-serif;
+	        font-size:14px;
+			font-weight:bold;
+			text-decoration:none;
+			text-align:inherit;
+		}
+
+#cabecera	{	background-color:red;
+				height: 1px;
+				float:inherit;
+				margin-top:150px;
+			}
+
+#contenido	{	background-color:white;	}
+			
+#contenido table	{	padding: 5px 10px 5px 10px	}
+
+#encabezado	{	width:100px;
+				float:left
+			}
+
+#imagenDer	{	witdth:100px;
+				float:right;
+			}
+
+#imagenIzq	{	witdth:100px;
+				float:left;
+			}
+
+#resultados {
+    float: inherit;
+    margin: auto;
+    width: 800px;
+    border: 1px dashed blue;
+    min-height:50px;
+}
+			
+#ul { list-style:none;
+	}
+
+#demoIzq, #demoDer, #demoMed { border:1px dashed; width:195px; background-color:#EAEAEA; text-align:center; margin:0 1px 0 1px; }
+
+#demoDer, #demoMed { float:right; }
+
+

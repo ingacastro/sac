@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<meta http-equiv="refresh" content="60" />
+<title>Contingencias</title>
+</head>
+    <script src="../../js/acciones.js" language="javascript" type="text/javascript"></script>
+<body>
+<?php
+$img='../../vista/cne.jpg';
+$img2='../../imagen/LOGO20MAYO.png';
+require '../../plantilla/encabezado.php';
+?>
+<table align="center">
+    <tr>
+        <td align="center" colspan="2">
+            <input type="button" class="btn btn-primary btn-block btn-flat" name="regresar" value="Regresar" onclick="atras()" class="button" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+        <select class="form-control" name="orden" id="orden" onchange="ordenar()">
+            <option value="" selected="selected">Ordenar Por...</option>
+            <option value="1">Hora de llamada</option>
+            <option value="2">Parroquia</option>
+            <option value="3">Municipio</option>
+            <option value="4">Centro de Votación</option>
+        </select>
+	</td>
+	<td align="center">
+        <select class="form-control" name="mostrar" id="mostrar" onchange="mostrar()">
+            <option value="" selected="selected">Mostrar...</option>
+            <option value="1">Metropolitana</option>
+            <option value="4">Nacional</option>
+            <option value="2">Contingencia</option>
+            <option value="3">Generar .xls</option>
+            <option value="5">Resumen Principal</option>
+        </select>
+        </td>
+    </tr>
+</table>
+<!--<table align="center">
+    <tr>
+        <td><dt>RED SOCIAL</dt><dd><?php //echo $cantrds; ?></dd></td>
+        <td><dt>METROPOLITANA</dt><dd><?php //echo $cantMetro ?></dd></td>
+        <td><dt>NACIONAL</dt><dd><?php //echo $cantNac ?></dd></td>
+        <td><dt>RIS</dt><dd><?php //echo $cantRIS; ?></dd></td>
+    </tr>
+</table>-->
+<table align="center">
+<?php
+if($total>0){
+?>
+    <tr class=modo1>
+        <td align="center">Ítem</td>
+        <td align="center">Hora de Llamada</td>
+        <td align="center">Registrado por</td>
+        <td align="center">Coordinado por</td>
+        <td align="center">Nombre del Centro</td>
+        <td align="center">Dirección del Centro</td>
+        <td align="center">Parroquia</td>
+        <td align="center">Municipio</td>
+        <td align="center">Estado</td>
+        <td align="center">Origen</td>
+        <td align="center">Solución</td>
+        <td align="center">Resultado</td>
+    </tr>
+<?php
+while ($row = $query->fetch(PDO::FETCH_BOTH)){
+?>
+    <tr>
+        <td align="center"><?php echo $row['id_contingencia'] ?></td>
+        <td align="center"><?php echo date("g:i a", strtotime($row['hora_llamada'])) ?></td>
+<?php 
+        $rowU=consUsu($db, $row['id_usuario_registro']);
+?>
+        <td align="center"><?php echo date("g:i a", strtotime($row['hora_registro']))?><br/>
+            <?php echo utf8_encode($rowU['nombre_usuario'])?></td>
+<?php
+        $filaC=consUsu($db, $row['id_coordinador']);
+?>
+        <td align="center">
+    <?php
+    if($row['hora_coordinador']!=null){
+        echo date("g:i a", strtotime($row['hora_coordinador']))."<br/>".utf8_encode($filaC['nombre_usuario']);
+    }
+    ?>
+        </td>
+<?php
+$query2=consTM2($db, $row['codigo_centro']);
+while ($row2 = $query2->fetch(PDO::FETCH_BOTH)){
+?>	
+    <td align="center">
+        <font size="2">
+        <a href="../consulta/consContCrdAdm.php?id=<?php echo $row['id_contingencia'] ?>">
+            <?php echo utf8_encode($row2['nombre'])?>
+        </a>
+        </font>
+    </td>
+    <td align="center"><?php echo utf8_encode($row2['direccion'])?></td>
+    <td align="center"><?php echo utf8_encode($row2['des_parroquia']) ?></td>
+    <td align="center"><?php echo utf8_encode($row2['des_municipio']) ?></td>
+    <td align="center"><?php echo utf8_encode($row2['des_estado']) ?></td>
+<?php 
+}
+
+switch($row['rds']){
+    case 0:
+        $org="Llamada";
+        $dsc="0-800";
+    break;
+    
+    case 1:
+        $org="Red Social";
+        $dsc=utf8_encode($row['telefono_contacto']);
+    break;
+
+    case 2:
+        $org="RIS";
+        $dsc=$row['nombre_solicitante'];
+    break;
+}
+
+?>
+    <td align="center"><?php echo utf8_encode($org) ?><br/><?php echo $dsc ?></td>
+<?php
+$r=consSRes($db, $row['id_contingencia']);
+if($r->rowCount()>0){
+    $res=1;
+    $rst=consSRes($db, $row['id_contingencia']);
+}else{
+    $res=0;
+}
+    
+$a=consAsig($db, $row['id_contingencia']);
+if($a->rowCount()>0){
+    $asig=1;
+}else{
+    $asig=0;
+}
+
+    if($asig==0 && $res==0){
+        echo "<td align=center>Sin asignar</td>";
+    }else if($asig==0 && $res!=0){
+        echo "<td align=center>Vía Telefónica</td>";
+        $rw=$rst->fetch(PDO::FETCH_BOTH);
+        echo "<td>".date("g:i a", strtotime($rw['hora_resultado']))."</td>";
+    }else if($asig!=0 && $res==0){
+        echo "<td align=center>Asignado</td>";
+    }else if($asig!=0 && $res!=0){
+        echo "<td align=center>EMCE</td>";
+        $rw=$rst->fetch(PDO::FETCH_BOTH);
+        echo "<td>".date("g:i a", strtotime($rw['hora_resultado']))."</td>";
+    }else if($result==1){
+        echo "<td align=center>Solucionado</td>";
+        $rw=$rst->fetch(PDO::FETCH_BOTH);
+        echo "<td>".date("g:i a", strtotime($rw['hora_resultado']))."</td>";
+    }
+}
+?>
+    </tr>
+</table>
+
+<?php
+    }
+?>
+<div class="row mx-auto">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 text-center">
+        <button class="btn btn-primary btn-block btn-flat" name="regresar" onclick="atras()">Regresar</button>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+</body>
+</html>

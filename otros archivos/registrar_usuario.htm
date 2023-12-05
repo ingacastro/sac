@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registro de usuarios</title>
+</head>
+
+<body>
+	<form action="registrar_usuario.php" method="post">
+    	<table width="70%" border="0" align="center" cellpadding="3" cellspacing="3" bordercolor="#666666" bgcolor="#FFFFFF">
+			<tr>
+            	<th width="18%" height="117"><img src="cne.jpg" width="100" height="100" longdesc="http://www.cne.gob.ve" /></th>
+    			<th width="74%" align="center" valign="middle">
+                	<div align="center" class="style1">      
+      					<p><strong>CONSEJO NACIONAL ELECTORAL</strong></p>
+						<p><strong> SALA DE ATENCIÓN DE CONTINGENCIA</strong></p>
+						<p><strong> ELECCIONES 2012-2013</strong></p>
+    				</div>
+          		</th>
+    			<th width="8%">&nbsp;</th>
+  			</tr>
+         </table>
+         <table width="70%" border="0" align="center" cellpadding="3" cellspacing="3" bordercolor="#666666" bgcolor="#FFFFFF">
+         	<tr>
+            	<td align="right">Usuario:</td>
+            	<td><input type="text" name="usuario" size="20" maxlength="20" /></td>
+         	</tr>
+            <tr>
+            	<td align="right">Tipo de usuario:</td>
+                <td><select name="tipo_de_usuario">
+                        <option value="operador">Operador</option>
+                        <option value="coordinador">Coordinador</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="secretaria(o)">Secretaria(o) de Contingencia</option>
+                    </select>
+                </td>
+             </tr>
+             <tr>
+             	<td align="right">Contraseña:</td>
+             	<td><input type="password" name="contrasena" size="30" maxlength="30" /></td>
+             </tr>
+             <tr>
+             	<td align="right">Nombre del Usuario:</td>
+             	<td><input type="text" name="nombre_usuario" size="50" maxlength="50" /></td>
+             </tr>
+             </table>
+             <table width="70%" border="0" align="center" cellpadding="3" cellspacing="3" bordercolor="#666666" bgcolor="#FFFFFF">
+             <tr>
+             	<td align="center"><input type="submit" value="Registrar" /></td>
+             </tr>
+             </table>
+
+    </form>
+</body>
+</html>
